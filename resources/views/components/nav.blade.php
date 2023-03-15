@@ -31,6 +31,9 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <form class="nav-item" role="logout">
+        <a class="nav-link btn btn-outline-success" href={{"/logout"}} type="submit">Logout</a>
+      </form>
     </div>
   </div>
 </nav>

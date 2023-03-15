@@ -5,12 +5,17 @@
 <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input type="name" class="form-control" name="name">
-    
+    @error('name')
+      <p>Invalid.</p>
+    @enderror
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
     <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    @error('email')
+      <p>Email is already used.</p>
+    @enderror
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>

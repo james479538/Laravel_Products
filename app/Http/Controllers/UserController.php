@@ -27,4 +27,32 @@ class UserController extends Controller
 
          return redirect("/");
 }
+    public function login(){
+        return view ('user.login');
+    }
+
+    public function process(Request $req){
+        //@dd($req);
+        $validated=$req->validate([
+            "email" =>['required','email',],
+            "password" =>'required'
+        ]);
+
+        if(auth()->attempt($validated)){
+            $req->session()->regenerate();
+            return redirect("/");
+        }
+    }
+
+    public function logout(Request $req){
+        auth()->logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
+        return redirect('/login');
+    }
+
+    public function delete($id){
+        $delete = DB;;table('customers')->where('id', $id)->delete();
+        return redirect("/")->with('success', 'Record Deleted');
+    }
 }
