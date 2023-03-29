@@ -55,4 +55,5 @@ class UserController extends Controller
         $delete = DB;;table('customers')->where('id', $id)->delete();
         return redirect("/")->with('success', 'Record Deleted');
     }
+
 }
